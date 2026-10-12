@@ -4,7 +4,7 @@
 
 > **Repository naming note:** The project was originally named **The Vanishing Trace** and the existing GitHub repository URL contains that name. The team subsequently adopted **The Last Transmission** as the final project title. We are keeping the original GitHub repository URL because it was already included in submitted/finalized documentation. The repository name and some older `TVT` file identifiers are therefore historical; the official project title is **The Last Transmission**. GitHub permits repository renames, but we are deliberately leaving this URL unchanged to preserve existing references.
 >
-> **Important:** This ZIP is an integration draft, **not yet a complete, deployment-verified submission**. Uploaded Stage 03–05 files have been retained; Stage 01/02/06 contain new reference starters, not recovered originals. Verify and replace them with the team's genuine deployed work. Read [docs/ALIGNMENT_REPORT.md](docs/ALIGNMENT_REPORT.md) before marking the project final.
+
 
 ## Project at a glance
 
