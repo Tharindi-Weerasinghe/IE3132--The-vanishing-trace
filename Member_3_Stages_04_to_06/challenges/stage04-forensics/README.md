@@ -68,7 +68,6 @@ Participants download `stage04-evidence.zip` and investigate the evidence using 
 
 Only the player evidence archive is provided through CTFd. Source files, test scripts, and solution documentation remain in the team's private repository.
 
-Challenge descriptions, hints, points, and flag configuration are documented in `CTFD-SETUP.md`.
 
 ## Challenge Reset
 
