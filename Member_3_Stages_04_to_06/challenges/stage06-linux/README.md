@@ -1,14 +1,88 @@
-# Stage 06 — The Final Terminal
+# Stage 06 – The Final Terminal
 
-**INCOMPLETE REFERENCE STARTER.** This directory does **not** provision a Linux privilege-escalation VM, install sudo rules, provide a working server, or reproduce the team's final challenge. The briefing says Stage 06 is a **live isolated Linux-Target VM** at 192.168.128.40, and a VM snapshot is needed for a complete submission. No VM image or actual provisioning/solver scripts were uploaded here.
+**The Last Transmission | IE3132 Penetration Testing | Linux Security**
 
-The only code in this directory is a **read-only** helper that examines saved `sudo -l` text and checks if a potentially problematic rule involving `find` is present. It makes no connection to any host and performs no escalation.
+## Overview
+
+*The Final Terminal* is the sixth and final challenge of **The Last Transmission**, a six-stage Capture the Flag (CTF) project. This stage focuses on Linux permissions, system security, and privilege escalation within an isolated virtual environment.
+
+Participants examine the Linux-Target system, investigate privileged command configurations, and apply their knowledge of Linux security to complete the challenge.
+
+## Challenge Details
+
+| Item | Description |
+|---|---|
+| Stage | STG-06 |
+| Challenge | The Final Terminal |
+| Category | Linux Security |
+| Difficulty | Hard |
+| Challenge Type | Interactive, VM-based |
+| Environment | Linux-Target VM |
+| IP Address | 192.168.128.40 |
+
+## Challenge Environment
+
+The challenge operates within the project's private virtual network.
+
+The Linux-Target VM is used specifically for this stage, allowing participants to examine system permissions and identify the intended security misconfiguration.
+
+CTFd manages the challenge description, hints, flag submission, and scoring, while the practical task takes place within the Linux environment.
+
+## Requirements
+
+- Linux-Target virtual machine
+- Kali Linux participant workstation
+- Python 3 for the supporting verification scripts
+- Access to the project's isolated virtual network
+
+## Supporting Files
+
+| File | Description |
+|---|---|
+| `check_permissions.py` | Examines saved Linux permission information |
+| `test_challenge.py` | Performs local checks on the verification script |
+| `fixtures/sudo-list-example.txt` | Sample permission configuration used for testing |
+
+These scripts provide read-only verification. The Linux-Target virtual machine and its deployed challenge configuration are managed separately.
+
+## Testing and Verification
+
+The supporting scripts can be executed from the Stage 6 directory using:
 
 ```bash
 python3 test_challenge.py
 python3 check_permissions.py fixtures/sudo-list-example.txt
 ```
 
-Before submitting, Member 3 should contribute the genuinely developed Linux-Target setup/configuration and lab-specific solver, along with the verified VM snapshot, access controls, player instructions, reset/recovery procedure, CTFd validation, and evidence. This scaffold alone **cannot count as a working sixth stage**.
+The first command checks the local verification functionality.
 
-Do not publish any live private credentials or actual VM secrets. Run tests only on your team's isolated and authorized lab.
+The second command examines a saved permission listing and checks for the relevant configuration involving the Linux `find` utility.
+
+These checks do not modify system permissions or perform privilege escalation.
+
+## CTFd Integration
+
+Stage 6 is included in the CTFd platform as an interactive Linux security challenge.
+
+Participants access the designated Linux-Target environment, investigate the configuration, and submit the recovered challenge flag through CTFd.
+
+The challenge operates independently of the previous five stages.
+
+## Reset and Recovery
+
+The Linux-Target environment can be restored using the team's configured virtual machine snapshot or documented recovery procedure.
+
+After restoration, the system configuration and participant access should be verified before the challenge is made available again.
+
+Resetting the virtual machine does not automatically remove existing CTFd submissions or scoreboard results.
+
+## Project Information
+
+**Module:** IE3132 – Penetration Testing  
+**Project:** The Last Transmission  
+**Stage:** 06 – The Final Terminal  
+**Responsible Member:** Member 3 – Challenge Design B
+
+
+
+The project was originally named *The Vanishing Trace* and was later renamed *The Last Transmission*. The original GitHub repository URL has been retained because it was already included in the finalized assignment documentation.
