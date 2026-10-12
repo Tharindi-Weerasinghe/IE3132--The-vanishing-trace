@@ -1,14 +1,49 @@
-# Stage 4 — The Missing Minute
+# Stage 04 – The Missing Minute
 
-Moderate digital-forensics challenge for The Vanishing Trace, following STG-04.
-The player correlates an application log with independent host monitoring,
-collection activity, session mappings and exported file metadata, then opens
-the relevant recovered receipt. All records are synthetic and use UTC.
+**The Last Transmission | IE3132 Penetration Testing | Digital Forensics**
 
-## Build / test / organizer solve
+## Overview
 
-Kali/Ubuntu builder requirements: Python 3.8+, Info-ZIP (`zip`). Player tools:
-Python 3 or unzip, file, sha256sum and a text viewer. No pip dependencies.
+*The Missing Minute* is the fourth challenge in **The Last Transmission**, a six-stage Capture the Flag (CTF) project. This stage focuses on digital forensics and timeline analysis.
+
+Players investigate a collection of fictional system records to identify suspicious activity and uncover a recovered receipt containing the challenge flag.
+
+All evidence is synthetic, and timestamps are recorded in UTC.
+
+## Challenge Details
+
+| Item | Description |
+|---|---|
+| Stage | STG-04 |
+| Challenge Name | The Missing Minute |
+| Category | Digital Forensics |
+| Difficulty | Moderate |
+| Challenge Type | File-based |
+
+## Challenge Description
+
+The challenge requires players to examine and correlate multiple sources of digital evidence, including application logs, host monitoring records, collection activity, session mappings, and exported file metadata.
+
+By reconstructing the sequence of events, players must identify the relevant activity and locate the recovered receipt.
+
+## Requirements
+
+**Development and testing environment:**
+- Kali Linux or Ubuntu
+- Python 3.8 or later
+- ZIP and UNZIP utilities
+
+**Player tools:**
+- Python 3 or unzip
+- `file`
+- `sha256sum`
+- Text editor or log viewer
+
+No additional Python packages are required.
+
+## Build and Testing
+
+Run the following commands from the Stage 4 directory:
 
 ```bash
 sudo apt install -y zip unzip
@@ -17,24 +52,41 @@ python3 test_challenge.py
 python3 solve.py dist/stage04-evidence.zip
 ```
 
-A tested prebuilt player ZIP is included. Upload ONLY dist/stage04-evidence.zip
-to CTFd. Keep this source bundle, test code and solution in the private organizer
-repository. See CTFD-SETUP.md for fields, hints and the flag.
+**File descriptions:**
 
-## Reset and provenance
+- `build.py` – Generates the challenge evidence archive.
+- `test_challenge.py` – Checks the generated files and challenge implementation.
+- `solve.py` – Verifies the intended solution.
+- `dist/stage04-evidence.zip` – Evidence archive provided to participants.
+- `dist/SHA256SUMS.txt` – Checksums for the generated files.
 
-Use a new copy of the published player ZIP and an empty extraction directory.
-The builder recreates synthetic evidence, not real machine logs or a disk
-image. It writes only dist/stage04-evidence.zip and dist/SHA256SUMS.txt. Encrypted
-ZIP headers contain randomness, so a rebuild changes the artifact hashes;
-the builder updates the metadata and checksum together. Preserve the exact
-published packet. A file reset does not clear CTFd solves or scores.
+## CTFd Configuration
 
-The receipt password is a deliberately disclosed recovery convention derived
-from the evidence; no brute-force attack is required. Legacy ZIP encryption is
-used only for the fictional exercise. Test from the player download before
-recording the demonstration. Difficulty remains provisional until a teammate
-independently solves it and records time/hint usage.
+The challenge is hosted through CTFd as part of The Last Transmission.
 
-Prepared with AI assistance. Record actual team review, build, deployment and
-testing work, without attributing work to members who did not perform it.
+Participants download `stage04-evidence.zip` and investigate the evidence using digital forensic techniques.
+
+Only the player evidence archive is provided through CTFd. Source files, test scripts, and solution documentation remain in the team's private repository.
+
+Challenge descriptions, hints, points, and flag configuration are documented in `CTFD-SETUP.md`.
+
+## Challenge Reset
+
+As Stage 4 is a file-based challenge, the environment can be reset by restoring the original evidence archive and extracting it into a clean directory.
+
+The challenge files are generated from fictional data and do not contain actual system logs or disk images.
+
+The original published ZIP should be preserved for consistency, as rebuilding an encrypted archive may produce a different checksum.
+
+Resetting the downloaded evidence does not automatically clear participant submissions or scoreboard results in CTFd.
+
+## Project Information
+
+**Module:** IE3132 – Penetration Testing  
+**Project:** The Last Transmission  
+**Stage:** 04 – The Missing Minute  
+**Responsible Member:** Member 3 – Challenge Design B
+
+
+
+*The project was initially named The Vanishing Trace and later renamed The Last Transmission. The original GitHub repository URL has been retained because it was already included in the finalized assignment documentation.*
