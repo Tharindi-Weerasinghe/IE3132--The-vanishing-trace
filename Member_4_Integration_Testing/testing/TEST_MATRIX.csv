@@ -1,0 +1,7 @@
+stage,download_or_access,offline_or_live_solve,wrong_flag_rejected,correct_flag_accepted,reset_confirmed,isolation_confirmed,independent_tester,notes
+01,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,,
+02,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,,
+03,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,N/A,,Local source test passed; no CTFd test
+04,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,N/A,,Local source test passed; no CTFd test
+05,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,N/A,,Requires Scapy on Kali
+06,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,NOT TESTED,,Actual VM not provided

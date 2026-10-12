@@ -1,0 +1,8 @@
+risk_id,risk,impact,existing_controls,validation_evidence,status,owner
+R1,,,,,NOT REVIEWED,
+R2,,,,,NOT REVIEWED,
+R3,,,,,NOT REVIEWED,
+R4,,,,,NOT REVIEWED,
+R5,,,,,NOT REVIEWED,
+R6,,,,,NOT REVIEWED,
+R7,Unexpected network adapter may break VM isolation,,Host-only virtual network,,NEEDS VERIFICATION,
