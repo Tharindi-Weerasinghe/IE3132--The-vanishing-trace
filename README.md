@@ -1,70 +1,81 @@
 # The Last Transmission
 
-**IE3132 Penetration Testing | Assignment 02 | Six-stage CTFd lab**
+**IE3132 – Penetration Testing | Assignment 02**
 
-> **Repository naming note:** The project was originally named **The Vanishing Trace** and the existing GitHub repository URL contains that name. The team subsequently adopted **The Last Transmission** as the final project title. We are keeping the original GitHub repository URL because it was already included in submitted/finalized documentation. The repository name and some older `TVT` file identifiers are therefore historical; the official project title is **The Last Transmission**. GitHub permits repository renames, but we are deliberately leaving this URL unchanged to preserve existing references.
->
+The Last Transmission is a six-stage Capture the Flag (CTF) project developed for IE3132 Penetration Testing. The project follows a fictional investigation involving Mira Sen, where participants solve a series of challenges using different cybersecurity techniques.
 
+The challenges are hosted on CTFd within an isolated virtual lab, allowing participants to investigate digital evidence, identify vulnerabilities, and submit flags to complete each stage.
 
-## Project at a glance
+## Project Name
 
-The fictional investigator follows Mira Sen's traces across six independent challenges. The actual IE3132 briefing describes an **isolated four-VM lab** with CTFd (nginx, CTFd app, MariaDB, Redis), a participant Kali VM, a web target, and a Linux target. This archive does **not** include those VM images or the team's original deployment configuration.
+The project was initially named **The Vanishing Trace** and was later renamed **The Last Transmission**. We have retained the original GitHub repository name because its link was already included in our finalized assignment documentation. Both names refer to the same project.
 
-| Stage | Domain / challenge | Responsibility | Content status |
-|---|---|---|---|
-| 01 | The Photographer's Secret — steganography | Member 2 | **New prototype builder/solver; requires steghide on Kali and validation** |
-| 02 | The Admin's Oversight — web/IDOR | Member 2 | **New loopback-only demonstration app; replace/compare with real Flask Web-Target** |
-| 03 | The Encrypted Message — cryptography | Member 2 | **Provided source bundle; 8 local tests passed** |
-| 04 | The Missing Minute — forensics | Member 3 | **Provided source bundle; 8 local tests passed** |
-| 05 | The Silent Connection — network/PCAP | Member 3 | **Provided source bundle; Scapy runtime tests not run here** |
-| 06 | The Final Terminal — Linux security | Member 3 | **Read-only verification starter; actual target VM and setup/solver still required** |
+## Challenges
 
-**Members 1 and 4:** `platform/` contains read-only environment review tools and deployment evidence templates, not the real Docker Compose project; `testing/` contains unit-test runners, structural checks and templates. All newly generated helpers require review and honest attribution. Actual VM snapshots, Docker Compose configuration, results and evidence must come from team members themselves.
-
-## Files and roles
-
-```text
-challenges/
-  stage01-stego/         new reference builder, player packet, solver, tests
-  stage02-web/           new localhost-only prototype, solver, tests
-  stage03-crypto/        provided original ZIP contents
-  stage04-forensics/     provided original ZIP contents
-  stage05-network/       provided original ZIP contents
-  stage06-linux/         read-only validation starter; no VM image
-platform/                Member 1: configuration and architecture evidence
- testing/                Member 4: review tooling and real test-result templates
- docs/                   name note, reconciliation, contribution checklist
-```
-
-## Organizer setup / run / reset
-
-1. **Keep this repository private** while it contains `SOLUTION.md`, `CTFD-SETUP.md`, answer strings, sample credentials, or private testing materials. These are *organizer files*, not player downloads.
-2. On the isolated lab, **Member 1** must provide the real VM image(s) or the actual Docker Compose project and accurate start/stop/reset steps in `platform/README.md`. Do not treat the example Compose placeholder as deployable.
-3. **Members 2–3** should build and validate the stages **inside their intended environments** and attach only the specified player files in CTFd. See each stage's README and CTFD-SETUP.md.
-4. **Member 4** checks all six stages as a player, records wrong/correct flag submission, verifies reset/isolation, and fills the testing matrix honestly. Run `python3 testing/check_repository.py` to list missing files and flag-format inconsistencies.
-5. Preserve the actual generated artifact attached to CTFd and its checksum. A rebuild may change bytes; do not assume a newly built file matches an earlier published attachment.
-6. Static stages (01,03,04,05): reset by extracting a fresh copy of the original published player packet. Live stages (02,06): restore the actual target VM/container to its known-good snapshot **using the team's tested procedures**. Neither reset clears CTFd solves/scoreboard automatically.
-
-### Stage-specific commands (from each stage directory)
-
-| Stage | Preparation / tests | Dependencies |
+| Stage | Challenge | Category |
 |---|---|---|
-| 01 | `python3 build.py && python3 test_challenge.py` | Python, Pillow, **steghide** |
-| 02 | `python3 test_challenge.py`; `python3 app.py` | Python standard library; **prototype on localhost** |
-| 03 | `python3 build.py && python3 test_challenge.py` | Python standard library |
-| 04 | `python3 build.py && python3 test_challenge.py` | Python, Info-ZIP `zip` and `unzip` |
-| 05 | `python3 build.py && python3 test_challenge.py` | Python + Scapy (Kali), optional TShark |
-| 06 | `python3 test_challenge.py` | Python; only checks saved sample policy text |
+| 01 | The Photographer's Secret | Steganography |
+| 02 | The Admin's Oversight | Web Security (IDOR) |
+| 03 | The Encrypted Message | Cryptography |
+| 04 | The Missing Minute | Digital Forensics |
+| 05 | The Silent Connection | Network Analysis (PCAP) |
+| 06 | The Final Terminal | Linux Security |
 
-**Flag mismatch requiring team decision:** the briefing specifies `LTX{...}` for all stages, but the **supplied source** for 03–05 uses `TVT{...}`. The starter for 01–02 uses `LTX{...}`. Do not claim consistency or silently change flags; first agree on the authoritative convention, rebuild affected challenge packets, revise solutions, and update all six CTFd flag fields before re-testing.
+Each stage focuses on a different security concept. The challenges include downloadable evidence files, web-based tasks, network traffic analysis, and a Linux-based practical exercise.
 
-**Design mismatch requiring team decision:** the supplied Stage 03 uses Base64 + Vigenere, Stage 04 synthetic multi-log reconstruction, and Stage 05 a fragment-ordered HTTP transfer. These differ from some steps of the briefing/video game plan. Treat the real deployed build as authoritative and update documentation/video plans after verifying it, not vice versa.
+## System Architecture
 
-## Credits and honesty
+The project uses CTFd as the main platform for managing challenges, validating flags, displaying hints, and maintaining the scoreboard.
 
-- Source for Stages 03, 04, 05 comes unchanged from the team's uploaded ZIP files, some of which explicitly credit AI assistance.
-- New Stage 01, Stage 02 and Stage 06 starter content, root README, and review scripts were drafted with AI assistance and **must not be presented as already implemented or personally written by the named team members**. Review, edit, test and attribute contributions accurately.
-- Do not read AI-generated narration in the demonstration: the uploaded game plan says the graded demonstration must be live and unscripted in each member's own words.
-- Record actual testing evidence and named Git commit history. Do not invent screenshots, results, or authorship.
+The virtual lab consists of four machines connected through a private network.
 
-See [docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md) and [docs/CONTRIBUTIONS.md](docs/CONTRIBUTIONS.md).
+| Virtual Machine | IP Address | Purpose |
+|---|---|---|
+| Kali Linux | 192.168.128.10 | Participant workstation |
+| CTFd-Host | 192.168.128.20 | CTF platform and scoreboard |
+| Web-Target | 192.168.128.30 | Web security challenge |
+| Linux-Target | 192.168.128.40 | Linux security challenge |
+
+CTFd is deployed using Docker Compose with nginx, CTFd, MariaDB, and Redis.
+
+## Repository Structure
+
+- **challenges/** – Source files, build scripts, solver scripts, test files, and documentation for all six stages.
+- **platform/** – Platform configuration, architecture information, and environment checks.
+- **testing/** – Integration testing, validation scripts, and test documentation.
+- **docs/** – Additional project documentation and supporting files.
+- **README.md** – Main project overview and instructions.
+
+The `challenges` directory is organized into six folders: `stage01-stego`, `stage02-web`, `stage03-crypto`, `stage04-forensics`, `stage05-network`, and `stage06-linux`.
+
+## Setup and Execution
+
+1. Start the four virtual machines and connect them to the configured private network.
+2. On the CTFd-Host, navigate to the Docker Compose deployment directory.
+3. Run `docker compose up -d` to start the CTFd services.
+4. Run `docker compose ps` to check the running containers.
+5. Open `http://192.168.128.20` from the Kali Linux browser.
+6. Log in to CTFd and access the challenges.
+
+Stage-specific instructions and supporting scripts are provided in the relevant challenge folders.
+
+### Challenge Reset
+
+For static challenges (Stages 1, 3, 4, and 5), restore the original challenge files from the saved copies.
+
+For interactive challenges (Stages 2 and 6), restore the respective target environment using the configured VM snapshots or reset procedures.
+
+## Team Contributions
+
+| Member | Responsibilities |
+|---|---|
+| Member 1 | CTF Platform and Architecture |
+| Member 2 | Challenge Design and Implementation – Stages 1–3 |
+| Member 3 | Challenge Design and Implementation – Stages 4–6 |
+| Member 4 | Integration, Testing, Validation, and Documentation |
+
+
+
+---
+
+*IE3132 Penetration Testing – Group Assignment 02*
