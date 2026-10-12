@@ -1,49 +1,58 @@
-# Stage 3 — The Encrypted Message
+# Stage 03 – The Encrypted Message
 
-The Vanishing Trace: moderate cryptography puzzle following proposal STG-03.
-Players combine separate clues to identify a Base64 wrapper, Vigenere cipher,
-and a keyword assembled in dispatch order from catalogue fragments.
+## Challenge Overview
 
-## Requirements
+This stage focuses on cryptography and encrypted message analysis. Participants must investigate hidden clues, identify encryption techniques, and decrypt a secret message to recover the CTF flag.
 
-Python 3.8 or later; standard library only. Works offline on Kali, Ubuntu,
-and Windows with Python installed. No additional packages or services.
+## Technologies Used
+- Python 3
+- Base64 Encoding
+- Vigenère Cipher
+- Cryptography Techniques
+- Kali Linux
 
-## Build, test, and solve (organizer)
+## Challenge Implementation
+
+The challenge combines Base64 encoding and Vigenère encryption to protect a secret message. Participants collect clues from different files, identify the correct keyword, and apply decryption techniques to reveal the hidden flag.
+
+## How to Run
+
+**Step 1 – Build the challenge**
 
 ```bash
 python3 build.py
+```
+
+**Step 2 – Test the challenge**
+
+```bash
 python3 test_challenge.py
+```
+
+**Step 3 – Run the solver**
+
+```bash
 python3 solve.py dist/stage03-evidence.zip
 ```
 
-On Windows, use `py -3` if that is your Python launcher. A ready-built player
-packet is included in `dist/`. The builder writes only its two generated files
-there. Fixed ZIP timestamps make the player packet reproducible in the same
-Python/zlib environment; compressed bytes may vary across library versions.
+## Testing and Validation
 
-## Distribution
+Testing focuses on verifying that the challenge files are generated correctly, the encrypted message can be decoded, and the expected CTF flag can be recovered.
 
-Upload ONLY `dist/stage03-evidence.zip` to CTFd. The outer source bundle contains
-answers, the builder and the reference solver; keep it in the private organizer
-repository. `dist/SHA256SUMS.txt` records the exact player packet's hash.
-Use `CTFD-SETUP.md` for the description, flag, score and optional hints.
+The challenge is designed for a moderate difficulty level. Independent testing is recommended before final deployment.
 
-## Reset
+## Deployment
 
-Static evidence has no server state. Start from a fresh downloaded player ZIP
-and an empty working directory. Rebuild from source if needed. Resetting files
-does not clear CTFd submissions or scores. Preserve the published ZIP and hash.
+Upload only `dist/stage03-evidence.zip` to the CTFd platform.
 
-## Validation and difficulty
+Keep the source code, solution scripts, and organizer documentation private to prevent revealing the challenge answers.
 
-See VALIDATION.md for actual preparation tests and remaining user-side checks.
-Difficulty is provisionally Moderate; a teammate must independently solve it
-and record elapsed time/hints before finalizing difficulty. The intended route
-requires combining clues rather than blind cryptanalysis. No earlier stage is
-a prerequisite.
+## Security and Reset
 
-## Credits
+The challenge uses static files and does not require an active server.
 
-Prepared with AI assistance for the university project. Team members should
-record only their actual review, implementation, deployment and testing work.
+To reset the challenge, extract a fresh copy of the player ZIP into an empty working directory. Reset CTFd submissions and scores separately if required.
+
+## Learning Outcome
+
+This challenge helps participants develop practical skills in cryptography, Base64 decoding, Vigenère cipher analysis, logical problem-solving, and extracting information from encrypted messages.
