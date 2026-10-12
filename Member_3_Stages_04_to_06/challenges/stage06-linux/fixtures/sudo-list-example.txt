@@ -1,0 +1,2 @@
+User participant may run the following commands on linux-target:
+    (root) NOPASSWD: /usr/bin/find
