@@ -1,10 +1,22 @@
-# Stage 01 — The Photographer's Secret
+# Stage 01 – The Photographer's Secret
 
-**NEW REFERENCE STARTER — not recovered original team source.**
+## Challenge Overview
 
-This recreates the learning objective described in the briefing: inspect JPEG metadata for a phrase, use **steghide** on the image, and recover a fictional receipt. The image is generated locally; it is not Mira's original photo. The builder uses Pillow and the Kali `steghide` utility.
+This stage focuses on steganography, a technique used to hide secret information inside digital images. Participants must investigate a JPEG image, examine its metadata, identify hidden clues, and extract the secret message to obtain the CTF flag.
 
-On **your isolated Kali VM**, install Pillow if needed and ensure `steghide` is already available. Run:
+## Technologies Used
+- Python 3
+- Pillow (Python Imaging Library)
+- Steghide
+- Kali Linux
+
+## Challenge Implementation
+
+The challenge uses Python to generate an image containing hidden information. Participants examine the image metadata and use Steghide to extract the concealed message.
+
+## How to Run
+
+Run the following commands in Kali Linux:
 
 ```bash
 python3 build.py
@@ -12,6 +24,16 @@ python3 test_challenge.py
 python3 solve.py dist/stage01-evidence.zip
 ```
 
-The builder intentionally fails if `steghide` is absent. Tests are only meaningful if they run on the published packet. Attach **only** `dist/stage01-evidence.zip` to CTFd. Never attach this source or `SOLUTION.md` to player-facing challenge files.
+## Testing and Validation
 
-**Reset:** extract the original published player ZIP again; on the platform reset scoring separately if required. Replace this starter with the team's actual created Stage 01 if it differs from what you demonstrated.
+The challenge includes scripts for building, testing, and solving the steganography task. Testing should confirm that the hidden information can be extracted successfully and the expected flag can be recovered.
+
+## Deployment and Reset
+
+Upload only `dist/stage01-evidence.zip` to the CTF platform after successful testing. Keep source files and `SOLUTION.md` private.
+
+To reset the challenge, restore the original player files and reset the challenge scoring on the CTF platform if required.
+
+## Learning Outcome
+
+This challenge helps participants develop practical skills in image analysis, metadata investigation, steganography, and hidden data extraction.
