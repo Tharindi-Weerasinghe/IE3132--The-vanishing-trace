@@ -30,8 +30,3 @@ The following items must be supplied or verified using the team's isolated lab:
 - Actual deployment logs and testing evidence.
 - Relevant screenshots and commit history documenting the work completed.
 
-## Verification and Attribution
-
-Do not describe the platform as deployed or tested unless supporting evidence is available. Review example configurations and generated helper scripts before using them. Record actual contributions and disclose AI assistance where required by the assignment's academic integrity rules.
-
-**Status:** Platform documentation and review tools are provided; deployment verification remains outstanding until the actual lab configuration and evidence are supplied.
